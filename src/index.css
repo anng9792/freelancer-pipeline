@@ -529,23 +529,32 @@ body {
 
 /* Project pill in the calendar */
 .calendar-project-pill {
-  border-radius: 999px;
-  padding: 4px 8px;
+  border-radius: 12px;                 /* less extreme radius looks better when wrapping */
+  padding: 6px 8px;
   background: white;
   box-shadow: 0 6px 12px rgba(15, 23, 42, 0.08);
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-start;
+  flex-wrap: wrap;                    /* <-- allows wrapping */
+  gap: 4px 6px;                       /* row gap + column gap */
   font-size: 0.7rem;
-  white-space: nowrap;
-  cursor: pointer;               /* ← make it feel clickable */
+  cursor: pointer;
   transition: background-color 160ms ease, transform 120ms ease;
+  max-width: 100%;                    /* ensures it doesn't exceed the cell */
+  white-space: normal;                /* <-- text can wrap */
+  line-height: 1.2;
 }
 
 .calendar-project-pill:hover {
   background-color: #f3f4f6;
   transform: translateY(-1px);
 }
+
+.calendar-project-dot {
+  flex-shrink: 0;       /* dot stays fixed size */
+  margin-top: 2px;      /* aligns better with wrapped text */
+}
+
 
 .calendar-project-client {
   font-weight: 500;
@@ -559,6 +568,14 @@ body {
   align-items: center;
   gap: 4px;
 }
+
+.calendar-project-client,
+.calendar-project-type {
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-word;   /* breaks long words */
+}
+
 
 .calendar-project-due-tag {
   font-size: 0.65rem;
