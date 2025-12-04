@@ -1,44 +1,40 @@
-// src/pages/CalendarPage.jsx
 import { useMemo, useState } from "react";
 import { useProjects } from "../hooks/useProjects.js";
 import { ProjectDetailDrawer } from "../components/ProjectDetailDrawer.jsx";
 
 const STAGE_COLORS = {
-  Inquiry: "#6B7280", // gray
-  Booked: "#10B981", // green
+  Inquiry: "#6B7280",
+  Booked: "#10B981",
   "Discovery Call": "#e587d5ff",
   "Proposal Sent": "#e3e587ff",
-  Shooting: "#3B82F6", // blue
-  Editing: "#8B5CF6", // purple
-  Delivered: "#F59E0B", // amber
+  Shooting: "#3B82F6",
+  Editing: "#8B5CF6",
+  Delivered: "#F59E0B",
 };
 
 function getMonthMatrix(baseDate) {
   const year = baseDate.getFullYear();
-  const month = baseDate.getMonth(); // 0 based
+  const month = baseDate.getMonth();
 
   const firstOfMonth = new Date(year, month, 1);
-  const firstWeekday = firstOfMonth.getDay(); // 0 Sunday, 6 Saturday
+  const firstWeekday = firstOfMonth.getDay();
 
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const daysInPrevMonth = new Date(year, month, 0).getDate();
 
   const cells = [];
 
-  // Leading days from previous month
   for (let i = firstWeekday - 1; i >= 0; i -= 1) {
     const dayNum = daysInPrevMonth - i;
     const date = new Date(year, month - 1, dayNum);
     cells.push({ date, inCurrentMonth: false });
   }
 
-  // Days in current month
   for (let day = 1; day <= daysInMonth; day += 1) {
     const date = new Date(year, month, day);
     cells.push({ date, inCurrentMonth: true });
   }
 
-  // Trailing days from next month to fill 6 weeks (42 cells)
   while (cells.length < 42) {
     const last = cells[cells.length - 1].date;
     const next = new Date(
@@ -84,7 +80,6 @@ export function CalendarPage() {
 
   const monthMatrix = useMemo(() => getMonthMatrix(monthStart), [monthStart]);
 
-  // shootDate + dueDate entries, with _calendarKind for label
   const projectsByDate = useMemo(() => {
     const map = {};
     projects.forEach((p) => {

@@ -28,7 +28,7 @@ export function useProjects() {
       stage: data.stage || "Inquiry",
       budget: data.budget || "",
       shootDate: data.shootDate || "",
-      dueDate: data.dueDate || "",          // ← NEW
+      dueDate: data.dueDate || "",         
       location: data.location || "",
       invoiceStatus: data.invoiceStatus || "Pending",
       contractStatus: data.contractStatus || "Not sent",

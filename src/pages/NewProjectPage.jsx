@@ -1,4 +1,3 @@
-// src/pages/NewProjectPage.jsx
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useProjects } from "../hooks/useProjects.js";

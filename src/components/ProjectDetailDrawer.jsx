@@ -1,4 +1,3 @@
-// src/components/ProjectDetailDrawer.jsx
 import { useEffect, useMemo, useState } from "react";
 
 function formatBudget(value) {

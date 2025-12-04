@@ -1,4 +1,3 @@
-/* Reset */
 *,
 *::before,
 *::after {
@@ -20,13 +19,11 @@ body {
   color: #111827;
 }
 
-/* Layout */
 .app-shell {
   display: flex;
   height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
   width: 220px;
   background: rgba(255, 255, 255, 0.5);
@@ -66,13 +63,12 @@ body {
   color: white;
 }
 
-/* Main content */
 .main {
   flex: 1;
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* let children handle scrolling */
+  overflow: hidden; 
 }
 
 
@@ -89,7 +85,6 @@ body {
   font-weight: 600;
 }
 
-/* Generic card (used for detail drawer + other pages) */
 .card {
   background: white;
   border-radius: 18px;
@@ -97,19 +92,14 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
 }
 
-/* ============= PIPELINE LAYOUT ============= */
 
-/* Row of columns on gray background */
-
-/* each column wrapper */
 .pipeline-column-shell {
-  flex: 0 0 260px; /* fixed width, stay side by side, scroll if needed */
+  flex: 0 0 260px; 
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* column header label */
 .pipeline-column-title {
   font-size: 0.85rem;
   font-weight: 600;
@@ -117,7 +107,6 @@ body {
   color: #4b5563;
 }
 
-/* column body panel on app gray background */
 .pipeline-column {
   display: flex;
   flex-direction: column;
@@ -126,12 +115,11 @@ body {
   min-height: 120px;
   border-radius: 0;
 
-  background: transparent;           /* no gray panel */
-  border: none;                      /* no box border */
+  background: transparent;           
+  border: none;                      
 }
 
 
-/* empty-state text inside a column */
 .pipeline-empty {
   font-size: 0.75rem;
   color: #9ca3af;
@@ -151,7 +139,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  border-right: 1px solid rgba(148, 163, 184, 0.3); /* subtle vertical divider */
+  border-right: 1px solid rgba(148, 163, 184, 0.3); 
   padding-right: 8px;
 }
 
@@ -159,38 +147,33 @@ body {
   border-right: none;
 }
 
-/* Main pipeline area: columns + detail card side by side */
 .pipeline-layout {
   flex: 1;
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  min-height: 0; /* important for flex children with overflow */
+  min-height: 0; 
 }
 
-/* Highlight column when dragging over it */
 .pipeline-column--dragover {
-  background: rgba(191, 219, 254, 0.5); /* light blue tint */
+  background: rgba(191, 219, 254, 0.5); 
   transition: background 120ms ease;
   border-radius: 12px;
   padding: 6px 4px 12px;
 }
 
-/* Dragging card styling */
 .project-card--dragging {
   opacity: 0.6;
   transform: scale(0.98);
 }
 
 
-/* ============= PROJECT / INQUIRY BUBBLES ============= */
 
-/* pure white, borderless bubble on gray column */
 .project-card {
   border-radius: 16px;
   padding: 12px 12px 10px;
   background: #ffffff;
-  border: none; /* no border */
+  border: none; 
 
   cursor: pointer;
   text-align: left;
@@ -229,23 +212,21 @@ body {
   color: #6b7280;
 }
 
-/* ============= DETAIL DRAWER ============= */
 
 .detail-drawer {
-  margin-top: 0; /* it's already inside a .card */
+  margin-top: 0; 
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 16px;
 }
 
 .detail-card {
-  flex: 0 0 420px;          /* fixed width panel on the right */
+  flex: 0 0 420px;          
   align-self: flex-start;
   position: sticky;
-  top: 0;                   /* sticks to top as you scroll vertically */
+  top: 0;                   
 }
 
-/* Form styles */
 
 .form-grid {
   display: grid;
@@ -288,7 +269,6 @@ body {
   resize: vertical;
 }
 
-/* Buttons */
 
 .button-row {
   display: flex;
@@ -337,25 +317,21 @@ body {
   transform: translateY(-1px);
 }
 
-/* Wrapper that forces the scroll bar to bottom */
 .pipeline-scroll-wrapper {
   flex: 1;
-  overflow: auto;           /* vertical + horizontal scroll here */
+  overflow: auto;           
   padding-bottom: 8px;
 }
 
-/* Ensure the scroll area is tall enough to place scrollbar at page bottom */
 
-/* The columns row */
 .pipeline-row {
   display: flex;
   gap: 16px;
   align-items: flex-start;
   padding-bottom: 6px;
-  width: max-content;       /* enables horizontal scroll when wide */
+  width: max-content;       
 }
 
-/* Add pretty mac-style scrollbar */
 .pipeline-scroll-wrapper::-webkit-scrollbar {
   height: 10px;
 }
@@ -392,7 +368,6 @@ body {
   background: #020617;
 }
 
-/* Base bubble style */
 .detail-bubble {
   display: inline-block;
   padding: 6px 10px;
@@ -402,44 +377,43 @@ body {
   margin: 4px 0;
 }
 
-/* Soft color variants */
 .bubble-email {
-  background: rgba(59, 130, 246, 0.12);  /* blue */
+  background: rgba(59, 130, 246, 0.12);  
   color: #1e40af;
 }
 
 .bubble-phone {
-  background: rgba(16, 185, 129, 0.12); /* green */
+  background: rgba(16, 185, 129, 0.12); 
   color: #065f46;
 }
 
 .bubble-date {
-  background: rgba(245, 158, 11, 0.15); /* amber */
+  background: rgba(245, 158, 11, 0.15); 
   color: #92400e;
 }
 
 .bubble-location {
-  background: rgba(139, 92, 246, 0.12); /* purple */
+  background: rgba(139, 92, 246, 0.12); 
   color: #5b21b6;
 }
 
 .bubble-budget {
-  background: rgba(220, 38, 38, 0.12);  /* red */
+  background: rgba(220, 38, 38, 0.12); 
   color: #7f1d1d;
 }
 
 .bubble-stage {
-  background: rgba(107, 114, 128, 0.12); /* gray */
+  background: rgba(107, 114, 128, 0.12);
   color: #374151;
 }
 
 .bubble-contract {
-  background: rgba(2, 132, 199, 0.12); /* cyan */
+  background: rgba(2, 132, 199, 0.12); 
   color: #075985;
 }
 
 .bubble-invoice {
-  background: rgba(234, 179, 8, 0.12); /* gold-ish */
+  background: rgba(234, 179, 8, 0.12); 
   color: #854d0e;
 }
 
@@ -452,7 +426,6 @@ body {
   color: #1f2937;
 }
 
-/* Calendar layout */
 
 .calendar-header {
   display: flex;
@@ -474,12 +447,10 @@ body {
   min-width: 32px;
 }
 
-/* Card wrapper for the calendar */
 .calendar-card {
   padding: 16px 16px 20px;
 }
 
-/* Grid: weekdays + 6 weeks = 7 columns */
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -488,7 +459,6 @@ body {
   margin-top: 8px;
 }
 
-/* Weekday headers */
 .calendar-weekday {
   font-size: 0.8rem;
   font-weight: 600;
@@ -497,7 +467,6 @@ body {
   padding-bottom: 4px;
 }
 
-/* Individual day cells */
 .calendar-day {
   background: #f9fafb;
   border-radius: 12px;
@@ -512,14 +481,12 @@ body {
   opacity: 0.4;
 }
 
-/* Day number in corner */
 .calendar-day-number {
   font-size: 0.8rem;
   font-weight: 500;
   color: #4b5563;
 }
 
-/* Container for project chips inside a day */
 .calendar-day-projects {
   display: flex;
   flex-direction: column;
@@ -527,21 +494,20 @@ body {
   margin-top: 2px;
 }
 
-/* Project pill in the calendar */
 .calendar-project-pill {
-  border-radius: 12px;                 /* less extreme radius looks better when wrapping */
+  border-radius: 12px;                 
   padding: 6px 8px;
   background: white;
   box-shadow: 0 6px 12px rgba(15, 23, 42, 0.08);
   display: flex;
   align-items: flex-start;
-  flex-wrap: wrap;                    /* <-- allows wrapping */
-  gap: 4px 6px;                       /* row gap + column gap */
+  flex-wrap: wrap;                    
+  gap: 4px 6px;                       
   font-size: 0.7rem;
   cursor: pointer;
   transition: background-color 160ms ease, transform 120ms ease;
-  max-width: 100%;                    /* ensures it doesn't exceed the cell */
-  white-space: normal;                /* <-- text can wrap */
+  max-width: 100%;                   
+  white-space: normal;               
   line-height: 1.2;
 }
 
@@ -551,8 +517,8 @@ body {
 }
 
 .calendar-project-dot {
-  flex-shrink: 0;       /* dot stays fixed size */
-  margin-top: 2px;      /* aligns better with wrapped text */
+  flex-shrink: 0;      
+  margin-top: 2px;     
 }
 
 
@@ -573,7 +539,7 @@ body {
 .calendar-project-type {
   display: inline-block;
   max-width: 100%;
-  word-break: break-word;   /* breaks long words */
+  word-break: break-word;  
 }
 
 
@@ -625,7 +591,7 @@ body {
 }
 
 .input-dollar-field {
-  padding-left: 26px; /* creates space for $ */
+  padding-left: 26px; 
 }
 
 .nav-link {
@@ -650,7 +616,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(15, 23, 42, 0.35); /* dimmed backdrop */
+  background: rgba(15, 23, 42, 0.35);
   backdrop-filter: blur(4px);
 }
 

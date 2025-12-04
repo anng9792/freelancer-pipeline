@@ -1,4 +1,3 @@
-// src/pages/PipelinePage.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProjects } from "../hooks/useProjects.js";
@@ -65,10 +64,8 @@ export function PipelinePage() {
     });
   }
 
-  // Drag handlers
   function handleDragStart(e, projectId) {
     setDraggedId(projectId);
-    // Optional: set drag data for accessibility
     e.dataTransfer.effectAllowed = "move";
   }
 
@@ -78,7 +75,7 @@ export function PipelinePage() {
   }
 
   function handleDragOver(e, stage) {
-    e.preventDefault(); // necessary to allow drop
+    e.preventDefault();
     setDragOverStage(stage);
     e.dataTransfer.dropEffect = "move";
   }
@@ -151,7 +148,7 @@ export function PipelinePage() {
                       {FIELD_CONFIG.map((field) => {
                         const value = project[field.key];
 
-                        if (!value) return null; // hide empty fields
+                        if (!value) return null;
 
                         return (
                           <div key={field.key} className="project-meta">
